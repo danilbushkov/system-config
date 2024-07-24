@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -68,52 +68,65 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gcc
-    wl-clipboard
-    neovim 
-    alacritty  
-    git
-
-    nodejs
     
-    gnumake
+    # compilers and interpreters
+    gcc
     clang
+    nodejs
+
+    # tools
     clang-tools
-    zlib
-
+    gnumake
     ripgrep
+    git
+    gh
 
-    gnutar
+    # archives
     zip
     unzip
+    gnutar
 
-    firefox
-    wofi
-    waybar
-    telegram-desktop
-    swww
-    texlive.combined.scheme-full
-
-
-    lua-language-server
-
-    gh
-    zathura
+    # libs
+    zlib
     readline
-    texlab
-    youtube-music
 
-    krita
+    # editors
+    neovim
+    vim
 
+    # terminal
+    alacritty  
 
+    # terminal tools
     zellij
     starship
 
+    # wayland tools
+    wl-clipboard
+
+    # lsp
+    lua-language-server
+    texlab
+
+    # screenshot
     grim
     slurp
 
+    # file converter
     pandoc
+
+    # programs
     libreoffice
+    krita
+    zathura
+    telegram-desktop
+    firefox
+    texlive.combined.scheme-full
+    wofi
+    waybar
+    swww
+
+
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
