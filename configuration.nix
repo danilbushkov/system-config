@@ -125,7 +125,10 @@
     wofi
     waybar
     swww
-
+    # audio 
+    pavucontrol
+    # video
+    guvcview
 
   ];
   nixpkgs.config.permittedInsecurePackages = [
