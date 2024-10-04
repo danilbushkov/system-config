@@ -13,15 +13,14 @@
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
+  boot.loader.grub.useOSProber = false;
 
   swapDevices = [ {
     device = "/var/lib/swapfile";
     size = 2*1024;
   } ];
 
-
+  
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -31,7 +30,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -57,6 +55,14 @@
     xkbVariant = "";
   };
 
+  services.printing.enable = true;
+
+  services.printing.drivers = with pkgs; [ gutenprint ];
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.danil = {
     isNormalUser = true;
@@ -65,6 +71,9 @@
     packages = with pkgs; [];
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -72,7 +81,7 @@
     # compilers and interpreters
     gcc
     clang
-    nodejs
+    nodejs_20
 
     # tools
     clang-tools
@@ -125,11 +134,18 @@
     wofi
     waybar
     swww
+    discord
     # audio 
     pavucontrol
     # video
     guvcview
 
+    # learning
+    anki-bin
+
+    eclipses.eclipse-sdk
+
+    nil
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
