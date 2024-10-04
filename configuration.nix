@@ -2,18 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+#  imports =
+#    [ # Include the results of the hardware scan.
+#      /etc/nixos/hardware-configuration.nix
+#    ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = false;
+  boot.loader.grub.useOSProber = true;
 
   swapDevices = [ {
     device = "/var/lib/swapfile";
@@ -51,8 +51,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   services.printing.enable = true;
@@ -68,7 +68,7 @@
     isNormalUser = true;
     description = "danil";
     extraGroups = [ "networkmanager" "wheel" "audio" "bluetooth" "docker"];
-    packages = with pkgs; [];
+   # packages = with pkgs; [];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
