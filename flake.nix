@@ -10,8 +10,8 @@
         system = "x86_64-linux";
         modules = [ 
 
-          /etc/nixos/hardware-configuration.nix
-          ./configuration.nix
+          ./nixos/hardware-configuration.nix
+          ./nixos/configuration.nix
         ];
       };  
     
