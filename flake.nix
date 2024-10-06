@@ -7,7 +7,7 @@
     };
 
     home-manager = {
-	url = "github:nix-community/home-manager";
+	url = "github:nix-community/home-manager/release-24.05";
 	inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -25,7 +25,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
 	#extraSpecialArgs = {inherit inputs outputs;};
 	modules = [
-	#  ./home-manager/home.nix
+	  ./home-manager/home.nix
 	];
       };
     
