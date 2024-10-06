@@ -21,7 +21,7 @@
   } ];
 
   
-  networking.hostName = "nixos"; # Define your hostname.
+  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -29,7 +29,18 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos";
+    networkmanager = {
+	enable = true;
+	insertNameservers = [
+      		"8.8.8.8" 
+      		"1.1.1.1"
+    	];
+    };
+    
+  };
+
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -146,6 +157,8 @@
     eclipses.eclipse-sdk
 
     nil
+
+    home-manager
   ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
@@ -201,6 +214,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
