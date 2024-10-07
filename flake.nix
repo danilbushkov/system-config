@@ -3,31 +3,33 @@
 
   inputs = {
     nixpkgs = {
-    	url = "github:NixOS/nixpkgs/nixos-24.05";
+      url = "github:NixOS/nixpkgs/nixos-24.05";
     };
 
     home-manager = {
-	url = "github:nix-community/home-manager/release-24.05";
-	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } : {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ 
+  outputs = { nixpkgs, home-manager, ... } : 
+  let
+    system = "x86_64-linux";
+  in {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [ 
+        ./nixos/hardware-configuration.nix
+        ./nixos/configuration.nix
+      ];
+    };  
 
-          ./nixos/hardware-configuration.nix
-          ./nixos/configuration.nix
-        ];
-      };  
-      homeConfigurations.danil = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	#extraSpecialArgs = {inherit inputs outputs;};
-	modules = [
-	  ./home-manager/home.nix
-	];
-      };
+    homeConfigurations.danil = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [
+        ./home-manager/home.nix
+      ];
+    };
     
   };
 }
