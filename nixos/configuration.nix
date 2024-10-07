@@ -158,10 +158,7 @@
   ];
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
-  fonts.packages = with pkgs; [
-    font-awesome
-    (nerdfonts.override { fonts = [ "Noto" "NerdFontsSymbolsOnly" ]; })
-  ];
+  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Noto" ]; }) ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
