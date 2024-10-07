@@ -8,28 +8,12 @@
   };
 
   programs = {
-
-    git = {
-      enable = true;
-      userName = "danilbushkov";
-      userEmail = "danil1357997@gmail.com";
-    };
+    imports =
+      [ ./programs/git.nix ./programs/starship.nix ./programs/alacritty.nix ];
 
     home-manager.enable = true;
 
-    alacritty = {
-      enable = true;
-      settings = {
-        import = [ "${config.home.profileDirectory}/one_dark.toml" ];
-      };
-    };
-
     bash.enable = true;
-
-    starship = {
-      enable = true;
-      enableBashIntegration = true;
-    };
 
   };
 
