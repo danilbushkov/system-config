@@ -14,6 +14,7 @@
     ./modules/swap.nix
     ./modules/users.nix
     ./modules/fonts.nix
+    ./modules/packages.nix
   ];
 
   # Set your time zone.
@@ -55,80 +56,7 @@
   nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
 
-    # compilers and interpreters
-    gcc
-    clang
-    nodejs
-
-    # tools
-    clang-tools
-    gnumake
-    ripgrep
-    git
-    gh
-
-    # archives
-    zip
-    unzip
-    gnutar
-
-    # libs
-    zlib
-    readline
-
-    # editors
-    neovim
-    vim
-
-    # terminal
-    alacritty
-
-    # terminal tools
-    zellij
-    starship
-
-    # wayland tools
-    wl-clipboard
-
-    # lsp
-    lua-language-server
-    texlab
-
-    # screenshot
-    grim
-    slurp
-
-    # file converter
-    pandoc
-
-    # programs
-    libreoffice
-    krita
-    zathura
-    telegram-desktop
-    firefox
-    #texlive.combined.scheme-full
-    wofi
-    waybar
-    swww
-    discord
-    # audio 
-    pavucontrol
-    # video
-    guvcview
-
-    # learning
-    anki-bin
-
-    eclipses.eclipse-sdk
-
-    nil
-    nixfmt-classic
-
-    home-manager
-  ];
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   # Some programs need SUID wrappers, can be configured further or are
