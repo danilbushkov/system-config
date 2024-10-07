@@ -1,6 +1,4 @@
 {
-  starship = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+  enable = true;
+  enableBashIntegration = true;
 }
