@@ -1,5 +1,7 @@
 { pkgs, config, ... }: {
 
+  imports = [ ./wallpapers.nix ];
+
   programs = import ./programs/default.nix { inherit config; };
 
   home = {
