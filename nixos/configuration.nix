@@ -5,22 +5,21 @@
 { pkgs, ... }:
 
 {
-#  imports =
-#    [ # Include the results of the hardware scan.
-#      /etc/nixos/hardware-configuration.nix
-#    ];
+  #  imports =
+  #    [ # Include the results of the hardware scan.
+  #      /etc/nixos/hardware-configuration.nix
+  #    ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  swapDevices = [ {
+  swapDevices = [{
     device = "/var/lib/swapfile";
-    size = 2*1024;
-  } ];
+    size = 2 * 1024;
+  }];
 
-  
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -32,15 +31,11 @@
   networking = {
     hostName = "nixos";
     networkmanager = {
-	enable = true;
-	insertNameservers = [
-      		"8.8.8.8" 
-      		"1.1.1.1"
-    	];
+      enable = true;
+      insertNameservers = [ "8.8.8.8" "1.1.1.1" ];
     };
-    
-  };
 
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -78,8 +73,8 @@
   users.users.danil = {
     isNormalUser = true;
     description = "danil";
-    extraGroups = [ "networkmanager" "wheel" "audio" "bluetooth" "docker"];
-   # packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "audio" "bluetooth" "docker" ];
+    # packages = with pkgs; [];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -88,7 +83,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    
+
     # compilers and interpreters
     gcc
     clang
@@ -115,7 +110,7 @@
     vim
 
     # terminal
-    alacritty  
+    alacritty
 
     # terminal tools
     zellij
@@ -157,19 +152,16 @@
     eclipses.eclipse-sdk
 
     nil
+    nixfmt-classic
 
     home-manager
   ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   fonts.packages = with pkgs; [
     font-awesome
-    (nerdfonts.override { fonts = [ "Noto" "NerdFontsSymbolsOnly"]; })
+    (nerdfonts.override { fonts = [ "Noto" "NerdFontsSymbolsOnly" ]; })
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -179,17 +171,15 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-    hyprland= {
+    hyprland = {
       enable = true;
       xwayland.enable = true;
     };
     thunar.enable = true;
-    
+
   };
 
-
   virtualisation.docker.enable = true;
-
 
   hardware.pulseaudio.enable = true;
   nixpkgs.config.pulseaudio = true;
