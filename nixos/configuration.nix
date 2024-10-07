@@ -87,7 +87,7 @@
     # compilers and interpreters
     gcc
     clang
-    nodejs_20
+    nodejs
 
     # tools
     clang-tools
