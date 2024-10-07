@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
 
 {
@@ -11,31 +7,14 @@
   #    ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
 
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 2 * 1024;
-  }];
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking = {
-    hostName = "nixos";
-    networkmanager = {
-      enable = true;
-      insertNameservers = [ "8.8.8.8" "1.1.1.1" ];
-    };
-
-  };
+  imports = [
+    ./modules/networking.nix
+    ./modules/bootloader.nix
+    ./modules/swap.nix
+    ./modules/users.nix
+    ./modules/fonts.nix
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -70,12 +49,6 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.danil = {
-    isNormalUser = true;
-    description = "danil";
-    extraGroups = [ "networkmanager" "wheel" "audio" "bluetooth" "docker" ];
-    # packages = with pkgs; [];
-  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -136,7 +109,7 @@
     zathura
     telegram-desktop
     firefox
-    texlive.combined.scheme-full
+    #texlive.combined.scheme-full
     wofi
     waybar
     swww
@@ -157,8 +130,6 @@
     home-manager
   ];
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
-
-  fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Noto" ]; }) ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
