@@ -1,15 +1,4 @@
-{config, pkgs, ...}: 
-let
-#nvim = builtins.fetchGit {
-#  url = "https://github.com/danilbushkov/nvim-config.git";
-#  ref = "refs/heads/main";
-#};
-  nvim = pkgs.fetchFromGitHub {
-    owner = "danilbushkov";
-    repo = "nvim-config";
-    rev = "refs/heads/main";
-  };
-in {
+{...}: {
   home = {
 
   username = "danil";
@@ -24,8 +13,5 @@ in {
   userEmail = "danil1357997@gmail.com";
   };
 
-#  home.file."${config.xdg.configHome}/nvim" = {
-#    source = "${nvim}";
-#  };
   
 }
