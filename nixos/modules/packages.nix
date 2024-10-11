@@ -64,7 +64,8 @@
     guvcview
 
     # learning
-    anki
+    #anki-bin
+    #anki
 
     eclipses.eclipse-sdk
 

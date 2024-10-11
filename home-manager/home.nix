@@ -9,7 +9,7 @@
     homeDirectory = "/home/danil";
     stateVersion = "24.05";
 
-    packages = with pkgs; [ alacritty-theme ];
+    packages = with pkgs; [ alacritty-theme anki ];
   };
 
 }
