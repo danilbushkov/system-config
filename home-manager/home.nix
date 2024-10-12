@@ -4,7 +4,7 @@ in {
 
   imports = [ ./wallpapers.nix ];
 
-  programs = programs.configs;
+  programs = programs.options;
 
   home = {
     username = "danil";

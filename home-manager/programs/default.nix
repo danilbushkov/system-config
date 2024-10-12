@@ -1,11 +1,11 @@
 config: pkgs:
 let alacritty = import ./alacritty.nix config pkgs;
 in {
-  configs = {
+  options = {
 
     git = import ./git.nix;
     starship = import ./starship.nix;
-    alacritty = alacritty.config;
+    alacritty = alacritty.options;
 
     home-manager.enable = true;
 
