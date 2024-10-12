@@ -73,5 +73,7 @@
     nixfmt-classic
 
     home-manager
+
+    xclip
   ];
 }

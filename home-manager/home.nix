@@ -1,15 +1,18 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+let programs = import ./programs/default.nix config pkgs;
+in {
 
   imports = [ ./wallpapers.nix ];
 
-  programs = import ./programs/default.nix { inherit config; };
+  programs = programs.configs;
 
   home = {
     username = "danil";
     homeDirectory = "/home/danil";
     stateVersion = "24.05";
 
-    packages = with pkgs; [ alacritty-theme anki ];
+    packages = import ./packages/default.nix pkgs
+      ++ programs.dependencies; # with pkgs; [  anki ];
   };
 
 }

@@ -1,11 +1,15 @@
-{ config, ... }: {
+config: pkgs:
+let alacritty = import ./alacritty.nix config pkgs;
+in {
+  configs = {
 
-  git = import ./git.nix;
-  starship = import ./starship.nix;
-  alacritty = import ./alacritty.nix { inherit config; };
+    git = import ./git.nix;
+    starship = import ./starship.nix;
+    alacritty = alacritty.config;
 
-  home-manager.enable = true;
+    home-manager.enable = true;
 
-  bash.enable = true;
-
+    bash.enable = true;
+  };
+  dependencies = alacritty.dependencies;
 }
