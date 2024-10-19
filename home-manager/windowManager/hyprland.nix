@@ -7,10 +7,13 @@ let
       "$menu" = "wofi --show drun";
       "$terminal" = "alacritty";
 
+      "exec-once" =
+        [ "swww-daemon && swww img ~/Pictures/wallpapers/bodyOfWater.jpg" ];
+      monitor = ",preferred,auto,auto";
       bind = [
-        "$mod, Q, exec, $terminal"
+        "$mod, T, exec, $terminal"
         "$mod, C, killactive,"
-        "$mod, M, exit,"
+        "$mod, Q, exit,"
         "$mod, E, exec, $fileManager"
         "$mod, V, togglefloating,"
         "$mod, R, exec, $menu"
@@ -52,24 +55,19 @@ let
         "$mod SHIFT, S, movetoworkspace, special:magic"
 
         # Scroll through existing workspaces with mainMod + scroll
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
 
-        # Move/resize windows with mainMod + LMB/RMB and dragging
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
       ];
       bindm = [
         # mouse movements
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
-        "$mod ALT, mouse:272, resizewindow"
-
       ];
     };
 
   };
-  dependencies = with pkgs; [ wofi ];
+  dependencies = with pkgs; [ wofi swww ];
 in {
   inherit options;
   inherit dependencies;
