@@ -39,8 +39,8 @@
     # lsp
 
     # screenshot
-    grim
-    slurp
+    # grim
+    # slurp
 
     # file converter
     pandoc

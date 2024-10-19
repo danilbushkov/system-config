@@ -78,6 +78,7 @@ let
         "$mod, mouse_down, workspace, e+1"
         "$mod, mouse_up, workspace, e-1"
 
+        '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
       ];
       bindm = [
         # mouse movements
@@ -87,7 +88,7 @@ let
     };
 
   };
-  dependencies = with pkgs; [ wofi swww ];
+  dependencies = with pkgs; [ wofi swww grim slurp ];
 in {
   inherit options;
   inherit dependencies;
