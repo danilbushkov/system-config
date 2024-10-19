@@ -9,6 +9,11 @@ let
 
       "exec-once" =
         [ "swww-daemon && swww img ~/Pictures/wallpapers/bodyOfWater.jpg" ];
+
+      input = {
+        kb_layout = "us, ru";
+        kb_options = "grp:win_space_toggle";
+      };
       monitor = ",preferred,auto,auto";
       bind = [
         "$mod, T, exec, $terminal"
