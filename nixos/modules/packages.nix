@@ -54,7 +54,7 @@
     telegram-desktop
     firefox
     #texlive.combined.scheme-full
-    wofi
+    #wofi
     waybar
     swww
     discord

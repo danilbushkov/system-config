@@ -67,10 +67,10 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
+    #  hyprland = {
+    #    enable = true;
+    #    xwayland.enable = true;
+    #  };
     thunar.enable = true;
 
   };
