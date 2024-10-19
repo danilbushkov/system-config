@@ -27,7 +27,7 @@
     vim
 
     # terminal
-    alacritty
+    #alacritty
 
     # terminal tools
     zellij
