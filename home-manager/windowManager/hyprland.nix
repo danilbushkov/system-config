@@ -7,8 +7,10 @@ let
       "$menu" = "wofi --show drun";
       "$terminal" = "alacritty";
 
-      "exec-once" =
-        [ "swww-daemon && swww img ~/Pictures/wallpapers/bodyOfWater.jpg" ];
+      "exec-once" = [
+        "swww-daemon && swww img ~/Pictures/wallpapers/bodyOfWater.jpg"
+        "waybar"
+      ];
 
       input = {
         kb_layout = "us, ru";

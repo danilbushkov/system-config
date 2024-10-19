@@ -6,6 +6,7 @@ in {
     git = import ./git.nix;
     starship = import ./starship.nix;
     alacritty = alacritty.options;
+    waybar = import ./waybar.nix;
 
     home-manager.enable = true;
 

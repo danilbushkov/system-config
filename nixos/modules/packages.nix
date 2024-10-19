@@ -37,8 +37,6 @@
     wl-clipboard
 
     # lsp
-    lua-language-server
-    texlab
 
     # screenshot
     grim
@@ -55,8 +53,8 @@
     firefox
     #texlive.combined.scheme-full
     #wofi
-    waybar
-    swww
+    #waybar
+    #swww
     discord
     # audio 
     pavucontrol

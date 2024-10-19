@@ -19,7 +19,7 @@ in {
       (import ./packages/default.nix pkgs)
       programs.dependencies
       hyprland.dependencies
-    ]; # with pkgs; [  anki ];
+    ];
   };
 
 }
