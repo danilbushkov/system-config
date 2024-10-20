@@ -11,7 +11,7 @@
     gnumake
     ripgrep
     git
-    gh
+    # gh
 
     # archives
     zip
@@ -55,7 +55,7 @@
     #wofi
     #waybar
     #swww
-   # discord
+    # discord
     # audio 
     pavucontrol
     # video
