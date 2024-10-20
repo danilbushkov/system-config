@@ -55,7 +55,7 @@
     #wofi
     #waybar
     #swww
-    discord
+   # discord
     # audio 
     pavucontrol
     # video

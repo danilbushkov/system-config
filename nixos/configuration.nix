@@ -15,6 +15,7 @@
     ./modules/users.nix
     ./modules/fonts.nix
     ./modules/packages.nix
+    ./modules/printing.nix
   ];
 
   # Set your time zone.
@@ -45,9 +46,9 @@
 
   services.printing.drivers = with pkgs; [ gutenprint ];
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
@@ -67,10 +68,10 @@
   #   enableSSHSupport = true;
   # };
   programs = {
-    #  hyprland = {
-    #    enable = true;
-    #    xwayland.enable = true;
-    #  };
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
     thunar.enable = true;
 
   };
