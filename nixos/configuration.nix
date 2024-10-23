@@ -42,10 +42,13 @@
     xkb.variant = "";
   };
 
-  services.printing.enable = true;
-
-  services.printing.drivers = with pkgs; [ gutenprint ];
-
+  services.devmon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+  #  services.printing.enable = true;
+  #
+  #  services.printing.drivers = with pkgs; [ gutenprint ];
+  #
   # services.xserver.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
