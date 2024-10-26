@@ -16,6 +16,7 @@
     ./modules/fonts.nix
     ./modules/packages.nix
     ./modules/printing.nix
+    #   ./modules/samba.nix
   ];
 
   # Set your time zone.
@@ -42,16 +43,16 @@
     xkb.variant = "";
   };
 
-  services.devmon.enable = true;
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
+  # services.devmon.enable = true;
+  # services.gvfs.enable = true;
+  # services.udisks2.enable = true;
   #  services.printing.enable = true;
   #
   #  services.printing.drivers = with pkgs; [ gutenprint ];
   #
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
 
