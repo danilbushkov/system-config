@@ -73,5 +73,6 @@
     home-manager
 
     xclip
+    gparted
   ];
 }
