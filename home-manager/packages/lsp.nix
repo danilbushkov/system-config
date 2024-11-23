@@ -4,6 +4,9 @@ with pkgs; [
   lua-language-server
   texlab
 
+  # scala
+  metals
+
   nodePackages_latest.typescript-language-server
   nodePackages_latest.eslint
   prettierd
