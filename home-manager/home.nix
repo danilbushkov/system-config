@@ -13,7 +13,7 @@ in {
   home = {
     username = "danil";
     homeDirectory = "/home/danil";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
 
     packages = builtins.concatLists [
       (import ./packages/default.nix pkgs)
