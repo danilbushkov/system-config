@@ -84,8 +84,8 @@
 
   virtualisation.docker.enable = true;
 
- # hardware.pulseaudio.enable = true;
- # nixpkgs.config.pulseaudio = true;
+  # nixpkgs.config.pulseaudio = true;
+  services.pipewire = { enable = true; };
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
