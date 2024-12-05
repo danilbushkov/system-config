@@ -79,6 +79,10 @@ let
         "$mod, mouse_up, workspace, e-1"
 
         '', Print, exec, grim -g "$(slurp -d)" - | wl-copy''
+
+        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
       ];
       bindm = [
         # mouse movements
@@ -88,7 +92,7 @@ let
     };
 
   };
-  dependencies = with pkgs; [ wofi swww grim slurp ];
+  dependencies = with pkgs; [ wofi swww grim slurp brightnessctl ];
 in {
   inherit options;
   inherit dependencies;
