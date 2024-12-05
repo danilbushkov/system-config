@@ -29,7 +29,7 @@ let
         kb_options = "grp:win_space_toggle";
       };
 
-      monitor = ",preferred,auto,auto";
+      monitor = [ "eDP-1, prefered, auto, 1.25" ];
       bind = [
         "$mod, T, exec, $terminal"
         "$mod, C, killactive,"
