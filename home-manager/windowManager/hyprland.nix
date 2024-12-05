@@ -38,13 +38,18 @@ let
         "$mod, V, togglefloating,"
         "$mod, R, exec, $menu"
         "$mod, P, pseudo," # dwindle
-        "$mod, J, togglesplit," # dwindle
+        "$mod, I, togglesplit," # dwindle
 
         #Move focus with mainMod + arrow keys
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
+
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
 
         # Switch workspaces with mainMod + [0-9]
         "$mod, 1, workspace, 1"
