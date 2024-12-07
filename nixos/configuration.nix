@@ -21,6 +21,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.kernelModules = [ "i2c-dev" ];
+
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
