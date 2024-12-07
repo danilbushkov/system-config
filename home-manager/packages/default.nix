@@ -1,2 +1,3 @@
 pkgs:
-import ./learning.nix pkgs ++ import ./lsp.nix pkgs ++ import ./utils.nix pkgs
+import ./learning.nix pkgs ++ import ./dev/default.nix pkgs
+++ import ./utils.nix pkgs
