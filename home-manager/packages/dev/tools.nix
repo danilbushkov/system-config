@@ -1,1 +1,6 @@
-pkgs: with pkgs; [ sbt ]
+pkgs:
+with pkgs; [
+  # scala
+  sbt
+  coursier
+]
