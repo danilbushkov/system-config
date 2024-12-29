@@ -111,6 +111,11 @@ let
       binde=,l,exec,wlrctl pointer move 10 0
       binde=,h,exec,wlrctl pointer move -10 0
 
+      binde=SHIFT,j,exec,wlrctl pointer move 0 50
+      binde=SHIFT,k,exec,wlrctl pointer move 0 -50
+      binde=SHIFT,l,exec,wlrctl pointer move 50 0
+      binde=SHIFT,h,exec,wlrctl pointer move -50 0
+
       # Left button
       bind=,s,exec,wlrctl pointer click left
       # Middle button
