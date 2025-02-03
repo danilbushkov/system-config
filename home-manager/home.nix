@@ -4,6 +4,11 @@ let
   hyprland = import ./windowManager/hyprland.nix pkgs;
 in {
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+  };
+
   imports = [ ./wallpapers.nix ];
 
   programs = programs.options;
