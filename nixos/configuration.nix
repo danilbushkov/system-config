@@ -16,10 +16,11 @@
     ./modules/fonts.nix
     ./modules/packages.nix
     ./modules/printing.nix
+    ./modules/drawing.nix
     #   ./modules/samba.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   boot.kernelModules = [ "i2c-dev" ];
 
