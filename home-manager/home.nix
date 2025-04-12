@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  programs = import ./programs/default.nix config pkgs;
+  programs = import ./programs config pkgs;
   hyprland = import ./windowManager/hyprland.nix pkgs;
 in {
 
@@ -21,7 +21,7 @@ in {
     stateVersion = "24.11";
 
     packages = builtins.concatLists [
-      (import ./packages/default.nix pkgs)
+      (import ./packages pkgs)
       programs.dependencies
       hyprland.dependencies
     ];
