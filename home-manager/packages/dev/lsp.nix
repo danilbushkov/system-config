@@ -12,5 +12,5 @@ with pkgs; [
   prettierd
 
   # rust
-
+  rust-analyzer
 ]

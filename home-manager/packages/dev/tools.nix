@@ -7,4 +7,5 @@ with pkgs; [
 
   # rust
   cargo
+  rustfmt
 ]
