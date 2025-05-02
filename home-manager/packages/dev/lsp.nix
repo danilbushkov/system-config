@@ -10,4 +10,7 @@ with pkgs; [
   nodePackages_latest.typescript-language-server
   nodePackages_latest.eslint
   prettierd
+
+  # rust
+
 ]

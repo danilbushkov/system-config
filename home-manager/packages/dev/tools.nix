@@ -4,4 +4,7 @@ with pkgs; [
   sbt
   coursier
   jdk
+
+  # rust
+  cargo
 ]

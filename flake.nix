@@ -15,14 +15,23 @@
     in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules =
-          [ ./nixos/hardware-configuration.nix ./nixos/configuration.nix ];
+        modules = [
+          ./nixos/hardware-configuration.nix
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.danil = ./home-manager/home.nix;
+          }
+
+        ];
       };
 
-      homeConfigurations.danil = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home-manager/home.nix ];
-      };
+      #      homeConfigurations.danil = home-manager.lib.homeManagerConfiguration {
+      #        pkgs = nixpkgs.legacyPackages.${system};
+      #        modules = [ ./home-manager/home.nix ];
+      #      };
 
     };
 }
