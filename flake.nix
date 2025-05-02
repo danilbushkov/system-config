@@ -2,16 +2,18 @@
   description = "system config";
 
   inputs = {
-    nixpkgs = { url = "github:NixOS/nixpkgs/nixos-24.11"; };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-unstable, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-unstable, alacritty-theme, ... }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -21,7 +23,10 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
+          ({ config, pkgs, ... }: {
+            nixpkgs.overlays =
+              [ overlay-unstable alacritty-theme.overlays.default ];
+          })
 
           ./nixos/hardware-configuration.nix
           ./nixos/configuration.nix

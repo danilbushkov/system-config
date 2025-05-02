@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  programs = import ./programs config pkgs;
+  programs = import ./programs pkgs;
   hyprland = import ./windowManager/hyprland.nix pkgs;
 in {
 
@@ -11,7 +11,7 @@ in {
 
   imports = [ ./wallpapers.nix ];
 
-  programs = programs.options;
+  programs = programs;
 
   wayland.windowManager.hyprland = hyprland.options;
 
@@ -20,11 +20,8 @@ in {
     homeDirectory = "/home/danil";
     stateVersion = "24.11";
 
-    packages = builtins.concatLists [
-      (import ./packages pkgs)
-      programs.dependencies
-      hyprland.dependencies
-    ];
+    packages =
+      builtins.concatLists [ (import ./packages pkgs) hyprland.dependencies ];
   };
 
 }

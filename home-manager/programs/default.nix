@@ -1,17 +1,12 @@
-config: pkgs:
-let alacritty = import ./alacritty.nix config pkgs;
-in {
-  options = {
+pkgs: {
 
-    git = import ./git.nix;
-    gh = import ./gh.nix;
-    starship = import ./starship.nix;
-    alacritty = alacritty.options;
-    waybar = import ./waybar.nix;
+  git = import ./git.nix;
+  gh = import ./gh.nix;
+  starship = import ./starship.nix;
+  alacritty = import ./alacritty.nix pkgs;
+  waybar = import ./waybar.nix;
 
-    home-manager.enable = true;
+  home-manager.enable = true;
 
-    bash.enable = true;
-  };
-  dependencies = alacritty.dependencies;
+  bash.enable = true;
 }
