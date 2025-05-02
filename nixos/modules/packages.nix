@@ -5,6 +5,9 @@
     gcc
     clang
     nodejs
+    python3
+    lua
+    luarocks-nix
 
     # tools
     clang-tools
