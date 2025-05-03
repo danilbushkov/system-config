@@ -7,5 +7,7 @@ with pkgs; [
 
   # rust
   cargo
+  clippy
   rustfmt
+  rustc
 ]
