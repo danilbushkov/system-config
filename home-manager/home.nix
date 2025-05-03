@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   programs = import ./programs pkgs;
-  hyprland = import ./windowManager/hyprland.nix pkgs;
+  hyprland = import ./window-manager/hyprland.nix pkgs;
 in {
 
   nixpkgs.config = {
