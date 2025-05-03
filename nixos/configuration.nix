@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   #  imports =
@@ -22,7 +22,7 @@
 
   boot.kernelPackages = pkgs.linuxPackages;
 
-  boot.kernelModules = [ "i2c-dev" ];
+  hardware.i2c.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
