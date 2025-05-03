@@ -9,4 +9,6 @@ pkgs: {
   home-manager.enable = true;
 
   bash.enable = true;
+
+  hyprlock = { enable = true; };
 }
