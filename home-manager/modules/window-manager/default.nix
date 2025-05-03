@@ -1,7 +1,17 @@
 { pkgs, ... }: {
   wayland.windowManager.hyprland = import ./hyprland;
 
-  services.hypridle.enable = true;
+  services.hypridle = import ./hypridle;
 
-  packages = with pkgs; [ wofi swww grim slurp brightnessctl wl-kbptr wlrctl ];
+  programs.hyprlock = import ./hyprlock;
+
+  home.packages = with pkgs; [
+    wofi
+    swww
+    grim
+    slurp
+    brightnessctl
+    wl-kbptr
+    wlrctl
+  ];
 }
