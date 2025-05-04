@@ -13,4 +13,7 @@ with pkgs; [
 
   # rust
   rust-analyzer
+
+  # markdown
+  marksman
 ]
