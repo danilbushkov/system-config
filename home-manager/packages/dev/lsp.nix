@@ -16,4 +16,7 @@ with pkgs; [
 
   # markdown
   marksman
+
+  # go
+  gopls
 ]
