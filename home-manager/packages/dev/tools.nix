@@ -10,4 +10,6 @@ with pkgs; [
   clippy
   rustfmt
   rustc
+
+  go
 ]
