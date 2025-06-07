@@ -10,10 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { nixpkgs, home-manager, nixpkgs-unstable, alacritty-theme, ... }:
+  outputs = { nixpkgs, home-manager, nixpkgs-unstable, ... }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -23,19 +22,12 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ({ config, pkgs, ... }: {
-            nixpkgs.overlays =
-              [ overlay-unstable alacritty-theme.overlays.default ];
-          })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
 
           ./nixos/hardware-configuration.nix
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.danil = ./home-manager/home.nix;
-          }
+          { home-manager.users.danil = ./home-manager/home.nix; }
 
         ];
       };
