@@ -26,7 +26,7 @@
     readline
 
     # editors
-    unstable.neovim
+    neovim
     vim
 
     # terminal
