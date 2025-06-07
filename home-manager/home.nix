@@ -14,7 +14,7 @@ in {
   home = {
     username = "danil";
     homeDirectory = "/home/danil";
-    stateVersion = "24.11";
+    stateVersion = "25.05";
 
     packages = (import ./packages pkgs);
   };
