@@ -77,5 +77,9 @@
 
     xclip
     gparted
+
+#    anydesk
+    chromium
+#    google-chrome
   ];
 }

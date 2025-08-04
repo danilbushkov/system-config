@@ -1,4 +1,4 @@
-{
+{pkgs, ...}:{
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -12,7 +12,15 @@
     networkmanager = {
       enable = true;
       insertNameservers = [ "8.8.8.8" "1.1.1.1" ];
+      enableStrongSwan = true;
+      packages = with pkgs; [
+         networkmanager-l2tp
+         networkmanager_strongswan
+      ];
     };
 
   };
+  services.xl2tpd.enable = true;
+  services.strongswan.enable = true;
+  environment.etc."strongswan.conf".text = "";
 }

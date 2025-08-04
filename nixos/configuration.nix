@@ -68,6 +68,8 @@
   # $ nix search wget
 
   nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  
+  home-manager.backupFileExtension = "backup";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
