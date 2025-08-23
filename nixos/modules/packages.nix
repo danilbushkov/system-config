@@ -6,13 +6,10 @@
     clang
     nodejs
     python3
-    lua
-    luarocks-nix
 
     # tools
     clang-tools
     gnumake
-    ripgrep
     git
     # gh
 
@@ -26,15 +23,10 @@
     readline
 
     # editors
-    neovim
     vim
 
     # terminal
     #alacritty
-
-    # terminal tools
-    zellij
-    starship
 
     # wayland tools
     wl-clipboard
@@ -65,13 +57,10 @@
     guvcview
 
     # learning
-    #anki-bin
-    #anki
+    # anki-bin
+    # anki
 
-    eclipses.eclipse-sdk
-
-    nil
-    nixfmt-classic
+    # eclipses.eclipse-sdk
 
     home-manager
 

@@ -1,1 +1,1 @@
-pkgs: with pkgs; [ yazi ddcutil ]
+pkgs: with pkgs; [ ddcutil ]
