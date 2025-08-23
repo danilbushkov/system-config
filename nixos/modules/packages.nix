@@ -78,8 +78,7 @@
     xclip
     gparted
 
-#    anydesk
     chromium
-#    google-chrome
+    nomachine-client
   ];
 }
