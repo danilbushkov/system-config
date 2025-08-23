@@ -7,7 +7,7 @@ in {
     allowUnfreePredicate = _: true;
   };
 
-  imports = [ ./wallpapers.nix ./modules/window-manager ];
+  imports = [ ./wallpapers.nix ./modules/window-manager ./modules/console ];
 
   programs = programs;
 

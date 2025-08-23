@@ -24,7 +24,7 @@
 
     input = {
       kb_layout = "us, ru";
-      kb_options = "grp:win_space_toggle";
+      kb_options = "grp:win_space_toggle,ctrl:nocaps";
     };
 
     monitor = [ "eDP-1, prefered, auto, 1.25" ];
