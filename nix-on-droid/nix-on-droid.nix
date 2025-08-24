@@ -41,14 +41,19 @@
     experimental-features = nix-command flakes
   '';
 
+  terminal.font =
+    "${pkgs.nerd-fonts.noto}/share/fonts/truetype/NerdFonts/Noto/NotoMonoNerdFontMono-Regular.ttf";
+
   home-manager.config = { pkgs, ... }: {
 
     home.enableNixpkgsReleaseCheck = false;
     imports = [ ../home-manager/modules/console ];
     # Read home-manager changelog before changing this value
-    home.stateVersion = "24.05";
+    home.stateVersion = "25.05";
 
-    # insert home-manager config
+    # fonts.fontconfig.enable = true;
+    # home.packages = with pkgs; [ nerd-fonts.noto ];
+    #    # insert home-manager config
   };
 
   #time.timeZone = "Europe/Berlin";
