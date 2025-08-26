@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Simply install just the packages
@@ -41,8 +41,37 @@
     experimental-features = nix-command flakes
   '';
 
-  terminal.font =
-    "${pkgs.nerd-fonts.noto}/share/fonts/truetype/NerdFonts/Noto/NotoMonoNerdFontMono-Regular.ttf";
+  terminal = {
+
+    font =
+      "${pkgs.nerd-fonts.noto}/share/fonts/truetype/NerdFonts/Noto/NotoMonoNerdFontMono-Regular.ttf";
+
+    colors = {
+      background = "#282c34";
+      foreground = "#abb2bf";
+      cursor = "#a6a28c";
+
+      # normal
+      color0 = "#282c34";
+      color1 = "#e06c75";
+      color2 = "#98c379";
+      color3 = "#e5c07b";
+      color4 = "#61afef";
+      color5 = "#c678dd";
+      color6 = "#56b6c2";
+      color7 = "#abb2bf";
+
+      # bright
+      color8 = "#5c6370";
+      color9 = "#e06c75";
+      color10 = "#98c379";
+      color11 = "#e5c07b";
+      color12 = "#61afef";
+      color13 = "#c678dd";
+      color14 = "#56c6c2";
+      color15 = "#ffffff";
+    };
+  };
 
   home-manager.config = { pkgs, ... }: {
 
@@ -53,7 +82,8 @@
 
     # fonts.fontconfig.enable = true;
     # home.packages = with pkgs; [ nerd-fonts.noto ];
-    #    # insert home-manager config
+
+    # insert home-manager config
   };
 
   #time.timeZone = "Europe/Berlin";

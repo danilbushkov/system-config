@@ -18,7 +18,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nix-on-droid, ... }: {
+  outputs = { nix-on-droid, nixpkgs, ... }: {
 
     nixOnDroidConfigurations.default =
       nix-on-droid.lib.nixOnDroidConfiguration {
