@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 
-  imports = [ ./helix.nix ./starship.nix ./git.nix ];
+  imports = [ ./helix.nix ./starship.nix ./git.nix ./rust.nix ];
 
   programs = {
     bash.enable = true;
