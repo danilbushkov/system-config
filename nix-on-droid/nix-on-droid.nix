@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-unstable, ... }:
 
 {
   # Simply install just the packages
@@ -73,17 +73,20 @@
     };
   };
 
-  home-manager.config = { pkgs, ... }: {
+  home-manager = {
+    useGlobalPkgs = true;
+    config = { pkgs, ... }: {
 
-    home.enableNixpkgsReleaseCheck = false;
-    imports = [ ../home-manager/modules/console ];
-    # Read home-manager changelog before changing this value
-    home.stateVersion = "25.05";
+      home.enableNixpkgsReleaseCheck = false;
+      imports = [ ../home-manager/modules/console ];
+      # Read home-manager changelog before changing this value
+      home.stateVersion = "25.05";
 
-    # fonts.fontconfig.enable = true;
-    # home.packages = with pkgs; [ nerd-fonts.noto ];
+      # fonts.fontconfig.enable = true;
+      # home.packages = with pkgs; [ nerd-fonts.noto ];
 
-    # insert home-manager config
+      # insert home-manager config
+    };
   };
 
   #time.timeZone = "Europe/Berlin";

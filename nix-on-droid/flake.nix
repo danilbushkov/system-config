@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -18,13 +18,22 @@
     };
   };
 
-  outputs = { nix-on-droid, nixpkgs, ... }: {
-
-    nixOnDroidConfigurations.default =
-      nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-linux"; };
-        modules = [ ./nix-on-droid.nix ];
+  outputs = { nix-on-droid, nixpkgs, nixpkgs-unstable, ... }:
+    let
+      system = "aarch64-linux";
+      overlay-unstable = final: prev: {
+        unstable = nixpkgs-unstable.legacyPackages.${system};
       };
-  };
+    in {
+
+      nixOnDroidConfigurations.default =
+        nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ overlay-unstable ];
+          };
+          modules = [ ./nix-on-droid.nix ];
+        };
+    };
 }
 
