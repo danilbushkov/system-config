@@ -16,7 +16,7 @@ in {
     homeDirectory = "/home/danil";
     stateVersion = "25.05";
 
-    packages = with pkgs; [ vim ] ++ (import ./packages pkgs);
+    packages = (import ./packages pkgs);
   };
 
 }

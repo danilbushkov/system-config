@@ -4,6 +4,6 @@ with pkgs; [
   cargo
   clippy
   rustfmt
-  rustc
+  unstable.rustc
   rust-analyzer
 ]

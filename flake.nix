@@ -27,7 +27,11 @@
           ./nixos/hardware-configuration.nix
           ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
-          { home-manager.users.danil = ./home-manager/home.nix; }
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.danil = ./home-manager/home.nix;
+          }
 
         ];
       };
