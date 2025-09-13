@@ -1,1 +1,1 @@
-pkgs: with pkgs; [ phpactor intelephense ]
+pkgs: with pkgs; [ phpactor ]
