@@ -1,13 +1,6 @@
 { pkgs, config, ... }: {
   home = {
-    packages = with pkgs; [
-
-      cargo
-      clippy
-      rustfmt
-      unstable.rustc
-      rust-analyzer
-    ];
+    packages = with pkgs; [ rustup ];
 
     sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
 
