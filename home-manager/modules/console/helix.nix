@@ -15,10 +15,16 @@
     };
     languages = {
 
-      language = [{
-        name = "rust";
-        auto-format = true;
-      }];
+      language = [
+        {
+          name = "rust";
+          auto-format = true;
+        }
+        {
+          name = "go";
+          auto-format = true;
+        }
+      ];
     };
   };
 }
