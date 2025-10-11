@@ -1,2 +1,9 @@
-pkgs: with pkgs; [ thunderbird ]
+pkgs:
+with pkgs; [
+  thunderbird
+
+  krita
+  kdePackages.kdenlive
+  audacity
+]
 

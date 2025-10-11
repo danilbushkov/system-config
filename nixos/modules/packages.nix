@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+
   environment.systemPackages = with pkgs; [
 
     # compilers and interpreters
@@ -42,7 +43,6 @@
 
     # programs
     libreoffice
-    krita
     zathura
     telegram-desktop
     firefox
