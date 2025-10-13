@@ -11,6 +11,10 @@
           };
           characters = { };
         };
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+        };
       };
     };
     languages = {

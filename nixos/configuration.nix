@@ -86,7 +86,7 @@
     thunar.enable = true;
 
     nix-ld.enable = true;
- };
+  };
   virtualisation.docker.enable = true;
 
   # nixpkgs.config.pulseaudio = true;
