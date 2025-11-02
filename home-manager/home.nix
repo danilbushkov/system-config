@@ -16,7 +16,6 @@ in {
     homeDirectory = "/home/danil";
     stateVersion = "25.05";
 
-    sessionPath = [ "/usr/local/bin" ];
     packages = (import ./packages pkgs);
   };
 
