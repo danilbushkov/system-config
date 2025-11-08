@@ -8,14 +8,8 @@
 
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" ];
+        plugins = [ "git" "docker" "docker-compose" ];
       };
-      #  initExtra = ''
-      #    if [ -f ~/.profile ]; then
-      #      . ~/.profile
-      #    fi
-      #  '';
-
     };
   };
 }
