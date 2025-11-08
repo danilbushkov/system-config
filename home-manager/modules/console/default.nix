@@ -1,16 +1,8 @@
 { pkgs, ... }: {
 
-  imports = [ ./helix.nix ./starship.nix ./git.nix ./rust.nix ];
+  imports = [ ./helix.nix ./starship.nix ./git.nix ./rust.nix ./zsh.nix ];
 
   programs = {
-    bash = {
-      enable = true;
-      initExtra = ''
-        if [ -f ~/.profile ]; then
-          . ~/.profile
-        fi
-      '';
-    };
     gh.enable = true;
     zellij.enable = true;
   };
