@@ -9,7 +9,11 @@
     gnumake
     neovim
     lua
-    gcc
+    clang
+    curl
+    wget
+    gnutar
+    nodejs
     # Some common stuff that people expect to have
     #procps
     #killall
@@ -24,12 +28,13 @@
     #gnused
     #gnutar
     #bzip2
-    #gzip
+    gzip
     #xz
     #zip
-    #unzip
+    unzip
   ];
 
+  user.shell = "${pkgs.zsh}/bin/zsh";
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
 

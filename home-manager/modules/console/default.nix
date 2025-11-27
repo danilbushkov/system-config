@@ -4,7 +4,11 @@
 
   programs = {
     gh.enable = true;
-    zellij.enable = true;
+    zellij = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = { default_shell = "${pkgs.zsh}/bin/zsh"; };
+    };
   };
 
   home.packages = (import ./packages pkgs);
