@@ -12,8 +12,7 @@
     networkmanager = {
       enable = true;
       insertNameservers = [ "8.8.8.8" "1.1.1.1" ];
-      enableStrongSwan = true;
-      plugins = with pkgs; [ networkmanager-l2tp networkmanager_strongswan ];
+      plugins = with pkgs; [ networkmanager-l2tp networkmanager-strongswan ];
     };
 
   };
